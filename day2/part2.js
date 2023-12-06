@@ -18,9 +18,13 @@ fs.readFile(filePath, 'utf8', (err, data) => {
         const [game, sets] = line.split(":");
         const id = parseInt(game.split(" ")[1])
 
-        const isPossible = getMax(sets, "blue") < 15 && getMax(sets, "red") < 13 && getMax(sets, "green") < 14;
+        const maxBlue = getMax(sets, "blue")
+        const maxRed = getMax(sets, "red")
+        const maxGreen = getMax(sets, "green")
 
-        return isPossible ? sum + id : sum;
+        const multi = maxBlue * maxRed * maxGreen
+
+        return sum + multi;
     }, 0)
 
     console.log(totalSum)
