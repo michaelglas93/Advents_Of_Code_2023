@@ -26,7 +26,7 @@ fs.readFile(filePath, 'utf8', (err, data) => {
             //check left of number
             if (start - 1 >= 0) {
                 const sym = line[start - 1];
-                const isSymbol = !!reSymbols.exec(sym);
+                const isSymbol = reSymbols.exec(sym);
                 if (isSymbol) {
                     isValid = true
                 }
@@ -35,7 +35,7 @@ fs.readFile(filePath, 'utf8', (err, data) => {
             //check right of number
             if (end + 1 < line.length) {
                 const sym = line[end + 1];
-                const isSymbol = !!reSymbols.exec(sym);
+                const isSymbol = reSymbols.exec(sym);
                 if (isSymbol) {
                     isValid = true
                 }
@@ -49,7 +49,7 @@ fs.readFile(filePath, 'utf8', (err, data) => {
 
                 for (let i = topStart; i <= topEnd; i++) {
                     const sym = top[i];
-                    const isSymbol = !!reSymbols.exec(sym);
+                    const isSymbol = reSymbols.exec(sym);
                     if (isSymbol) {
                         isValid = true
                     }
@@ -64,7 +64,7 @@ fs.readFile(filePath, 'utf8', (err, data) => {
 
                 for (let i = botStart; i <= botEnd; i++) {
                     const sym = bot[i];
-                    const isSymbol = !!reSymbols.exec(sym);
+                    const isSymbol = reSymbols.exec(sym);
                     if (isSymbol) {
                         isValid = true
                     }
